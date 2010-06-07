@@ -1,0 +1,19 @@
+﻿<content:title>
+	Managed Assembly : Sign In
+</content:title>
+<content:head>
+	<link rel="stylesheet" href="/Media/Scripts/css/openid.css" />
+	<script src="/Media/Scripts/openid-jquery.js" type="text/javascript"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			//openid.init('openid_identifier');
+		});
+	</script>
+</content:head>
+
+<h1>Sign In (or Register)</h1>
+
+<iframe src="https://managed-assembly.rpxnow.com/openid/embed?token_url=${ViewData["ReturnUrl"] as string}"
+  scrolling="no" frameBorder="no" style="width:400px;height:240px;">
+</iframe>
+

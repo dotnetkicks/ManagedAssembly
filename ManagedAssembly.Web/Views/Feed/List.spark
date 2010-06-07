@@ -1,0 +1,11 @@
+﻿<content:title>
+	Managed Assembly : Feeds
+</content:title>
+
+
+<div style="width: 60%; margin: 0 auto;">
+	<h1>Feeds</h1>
+	<Feeds />
+	
+	<h2>Individual user feeds can be found on their profile pages.</h2>
+</div>

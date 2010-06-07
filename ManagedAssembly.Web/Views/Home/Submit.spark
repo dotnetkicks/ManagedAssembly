@@ -1,0 +1,63 @@
+﻿<viewdata model="SubmitViewModel" />
+<content:title>
+	Managed Assembly : Submit
+</content:title>
+<content:head>
+	<script type="text/javascript">
+		$(function() {
+			$("#Url").keyup(function() {
+				if ($(this).val().length > 0) {
+					$("#Contents").attr("disabled", "disabled");
+					$("#Contents").val("(disabled)");
+				}
+				else {
+					$("#Contents").removeAttr("disabled");
+					$("#Contents").val("");
+				}
+			});
+		});
+	</script>
+</content:head>
+
+	<h1>Submit</h1>
+	<% var fromBookmarklet = !string.IsNullOrEmpty(Model.Url); %>
+	
+	# using (Html.BeginForm("Submit", "Home", FormMethod.Post)) {
+		<h2>Title (required)</h2>
+		<p>${Html.TextBox("Title", Model.Title, new { size = 80, maxlength=255 })}</p>
+		
+		<h2>Enter URL <if condition="!fromBookmarklet">(discussion will be ignored)</if></h2>
+		<p>${Html.TextBox("Url", Model.Url, new { size = 80, maxlength=500 })}</p>
+		
+		<if condition="!fromBookmarklet">
+			<h2><strong>Or</strong> start a discussion (<a href="${Url.Action("FAQ", "Home")}">why can't I do both?</a>)</h2>
+			<p>${Html.TextArea("Contents", "", 5, 80, null)}</p>
+		</if>
+		
+		<h2>${Html.SubmitButton("Submit", "Submit")}</h2>
+	# }
+	
+	<h2>Bookmarklet</h2>
+	<p><a href="javascript:window.location=%22http://${Request.Url.Host}/submit?u=%22+encodeURIComponent(document.location)+%22&t=%22+encodeURIComponent(document.title)">Add this bookmarklet</a> to your bookmarks to quickly submit links from anywhere.</p>
+	
+	<h2>Dos and Don'ts</h2>
+	<ul>
+		<li>DO - Submit links related to .NET or general-interest programming</li>
+		<li>DO - Start discussions about .NET or programming</li>
+		<li>DO - Use the title the original author of the submission used</li>
+		<li>DO - Post direct links, no blog spam</li>
+		<li>DO - Annotate titles with things like [video] or [pdf] when necessary</li>
+		<li>DO - Submit items in English</li>
+	</ul>
+	<ul>
+		<li>DON'T - Ask for help with specific programming problems. Use <a href="http://stackoverflow.com">StackOverflow</a> instead.</li>
+		<li>DON'T - Use the title as an opportunity to editorialize</li>
+		<li>DON'T - Include the name of the site in the title, the domain will be shown</li>
+		<li>DON'T - Post links to link blogs (post individual items instead)</li>
+	</ul>
+	
+	<h2>Philosophy</h2>
+	<p>
+		This site subscribes to the <a href="http://en.wikipedia.org/wiki/Fixing_Broken_Windows" target="_blank">Broken Windows Theory</a>. 
+		Posts that do not meet the guidelines will be edited or removed. Users who abuse the system will be banned.
+	</p>

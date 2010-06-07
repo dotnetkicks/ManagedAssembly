@@ -1,0 +1,47 @@
+﻿<viewdata model="ShareViewModel" />
+<content:title>
+	Managed Assembly : Share
+</content:title>
+<content:head>
+	<script type="text/javascript">
+		$(function() {
+			updateCount($("#Title"));
+			updateCount($("#TwitterTitle"));
+		
+			$(".title").keyup(function() { updateCount($(this)); });
+		});
+		
+		function updateCount(elm) {
+			$("#" + elm.attr("id") + "Count").text(elm.val().length);
+		}
+	</script>
+	
+</content:head>
+
+	<h1>Submit</h1>
+	# using (Html.BeginForm("Submit", "Share", FormMethod.Post)) {
+		<h2>Title</h2>
+		<p>${Html.TextBox("Title", Model.Title, new { size = 80, maxlength = 255, @class = "title" })} <span id="TitleCount">&nbsp;</span></p>
+		
+		<h2>Twitter Title (uses Title from above if blank)</h2>
+		<p>${Html.TextBox("TwitterTitle", Model.Title, new { size = 80, maxlength = 140, @class = "title" })} <span id="TwitterTitleCount">&nbsp;</span></p>
+
+		<h2>Twitter User</h2>
+		<p>${Html.TextBox("TwitterUser", "@", new { size = 80, maxlength = 255 })}</p>
+		
+		<h2>Enter URL</h2>
+		<p>${Html.TextArea("Url", Model.Url, new { rows = 4, cols = 60 })}</p>
+		
+		<h2>Share To</h2>
+		<p>
+			${Html.CheckBox("ManagedAssembly", "ManagedAssembly")} <label for="ManagedAssembly">MA</label> &nbsp;
+			${Html.CheckBox("dotnetlinks", "dotnetlinks")} <label for="dotnetlinks">@dotnetlinks</label> &nbsp;
+			${Html.CheckBox("dotnetvideos", "dotnetvideos")} <label for="dotnetvideos">@dotnetvideos</label> &nbsp;
+			${Html.CheckBox("dotnetpodcasts", "dotnetpodcasts")} <label for="dotnetpodcasts">@dotnetpodcasts</label> &nbsp;
+		</p>
+				
+		<h2>${Html.SubmitButton("Submit", "Submit")}</h2>
+	# }
+	
+	<h2>Bookmarklet</h2>
+	<p><a href="javascript:window.location=%22http://${Request.Url.Host}/share?u=%22+encodeURIComponent(document.location)+%22&t=%22+encodeURIComponent(document.title)">Add this bookmarklet</a> to your bookmarks to quickly submit links from anywhere.</p>

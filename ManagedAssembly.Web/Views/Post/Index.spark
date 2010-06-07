@@ -1,0 +1,60 @@
+﻿<viewdata model="PostDetailViewModel" />
+
+<content:title>
+	Managed Assembly : ${Model.ViewTitle} (${Model.Post.DomainName})
+</content:title>
+
+<content:head>
+	<link rel="canonical" href="${Model.Post.Permalink}" />
+</content:head>
+
+	<div id="details">
+		<table>
+			<tr class="link">
+				<td class="vote" rowspan="2" valign="top" id="vote_${Model.Post.PostId}">
+					${Html.PostVoteControls(Model.Post, Model.UpVoteIds)}
+				</td>
+				<td class="title">
+					<strong>${Html.PostLink(Model.Post)} </strong>
+					<span class="caption" if="Model.Post.IsLink && !Model.Post.IsDeleted">${Model.Post.DomainName}</span>
+				</td>
+			</tr>
+			<tr class="meta">
+				<td>
+					<span id="count_${Model.Post.PostId}">${Model.Post.UpVotes}</span> points - 
+					${Model.Post.CreateDate.ReadableDiff(DateTime.Now)} 
+					by <a href="${Url.Action("Profile", "User", new { id = Model.Post.UserId })}">${Model.Post.User.DisplayName}</a> -
+					<a href="${Url.Action("Index", "Post", new { id = Model.Post.PostId, slug = Model.Post.Slug })}">${Html.NumberWithLabel(Model.Post.CommentCount, "Comment", "Comments")}</a>
+					<strong if="(UserService.IsAuthenticated && (UserService.Current.IsModerator || UserService.Current.IsAdmin))">
+					- <a href="#" class="deletePost" id="delete_${Model.Post.PostId}">Delete</a>
+					</strong>
+					<if condition="(UserService.IsAuthenticated && ((UserService.Current.UserId == Model.Post.UserId && Model.Post.CreateDate > DateTime.Now.AddMinutes(-Settings.Thresholds.CommentEditMinutes) && Model.Post.IsDiscussion) || (UserService.Current.IsAdmin || UserService.Current.IsModerator)))">
+						- <a href="#" class="editPost" id="edit_${Model.Post.PostId}">Edit</a>
+					</if>
+				</td>
+			</tr>
+		</table>
+
+		<if condition="Model.Post.IsDiscussion">
+			<div id="contents">
+				<if condition="Model.Post.IsDeleted">
+					[deleted]
+				</if>
+				<else>
+					${Model.Post.Contents}
+				</else>
+			</div>
+		</if>
+	</div>
+	
+	<test if="UserService.IsAuthenticated && !Model.Post.IsDeleted">
+		#Html.RenderPartial("Reply", new ReplyViewModel { Id = Model.Post.PostId, CssClass = "respond" });
+	</test>
+		
+	<p if="!UserService.IsAuthenticated" class="respond"><a href="${Url.Action("Index", "User", new { r = Request.Url.AbsolutePath })}">Sign in to comment</a></p>
+	
+	<div id="discussion">
+		<for each="var comment in Model.TopLevelComments">
+			#Html.RenderPartial("Comment", new CommentViewModel { AllowReplies = !Model.Post.IsDeleted, Comment = comment, Children = comment.Children, UpVoteIds = Model.UpVoteIds, DownVoteIds = Model.DownVoteIds });
+		</for>
+	</div>

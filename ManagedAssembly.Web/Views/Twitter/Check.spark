@@ -1,0 +1,39 @@
+﻿<content:title>
+	Twitter Friend Checker
+</content:title>
+
+<content:head>
+	<script type="text/javascript">
+		$(function() {
+			$("#check").click(function(e) {
+				e.preventDefault();
+				$("#result").text("Checking...");
+				$("#result").css({ color: "#000" });
+				$.post("/Twitter/Check", { follower: $("#follower").val(), target: $("#target").val() }, showResult, "json");
+			});
+		});
+
+		function showResult(data) {
+			if (data.result) {
+				$("#result").css({ color: "#060" });
+				$("#result").html("<strong>Yes!</strong> " + $("#follower").val() + " is following " + $("#target").val());
+			} else {
+				$("#result").css({ color: "#600" });
+				$("#result").html($("#follower").val() + " is not following " + $("#target").val());
+			}
+		}
+	</script>
+</content:head>
+	
+	<h1>Twitter Friend Checker</h1>
+	<p><strong>Please note, this will not work if either user has a private account.</strong></p>
+
+	# using (Html.BeginForm("Check", "Twitter")) {
+		<p>
+			Is <%=Html.TextBox("Follower", "", new { id="follower" })%> following <%=Html.TextBox("Target", "", new { id = "target" })%>?
+		</p>
+		<p>
+			<input type="button" value="Check" id="check" />
+		</p>
+		<h2 id="result"></h2>
+	# }

@@ -1,0 +1,11 @@
+﻿<viewdata model="UserThreadsViewModel" />
+<content:title>
+	Managed Assembly : Comment Threads for ${Model.User.DisplayName}
+</content:title>
+
+	<h1>Comment Threads for <%=Model.User.DisplayName %></h1>
+	<div id="discussion">
+		<for each="var comment in Model.TopLevelComments">
+			# Html.RenderPartial("Comment", new CommentViewModel { Comment = comment, Children = comment.Children, UpVoteIds = Model.UpVoteIds, DownVoteIds = Model.DownVoteIds });
+		</for>
+	</div>

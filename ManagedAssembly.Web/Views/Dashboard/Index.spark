@@ -1,0 +1,59 @@
+<viewdata model="DashboardViewModel" />
+<content:title>
+	Managed Assembly : Dashboard
+</content:title>
+
+<content:head>
+	<style type="text/css">
+		.UP { color: #060; }
+		.DOWN { color: #600; }
+		
+		h2 
+		{
+			padding: 3px 0;
+			margin-top: 10px;
+			font-weight: bold;
+		}
+	</style>
+</content:head>
+
+<div style="overflow: hidden;">
+	<div style="float: left; width: 48%;">
+		<h2>Latest Votes</h2>	
+		<for each="var vote in Model.LatestVotes">
+			<var direction="vote.VoteDirection.Name.ToUpper()" />
+			<p style="margin-top: 5px;">
+				<strong class="${direction}">${direction}</strong>
+				 - <a if="!vote.Post.IsComment" href="${Url.Action("Index", "Post", new { id = vote.Post.PostId, slug = vote.Post.Slug })}">${vote.Post.Title}</a>
+				 <a if="vote.Post.IsComment" href="${Url.Action("Index", "Post", new {id=vote.Post.TopMostId})}#${vote.Post.PostId}">View Comment</a>
+				 (${vote.Post.Points})
+			</p>
+			<p class="caption" style="border-bottom: 1px solid #ccc; margin-bottom: 5px;">${vote.User.DisplayName} to ${vote.Post.User.DisplayName} (${vote.Post.User.Points})</p>
+		</for>
+		
+		<h2>Latest Comments</h2>
+		<for each="ManagedAssembly.Data.Post comment in Model.LatestComments">
+			<div style="border-bottom: 1px solid #ccc; padding: 5px 0;">
+				<div style="font-size: smaller;">${comment.Contents}</div>
+				<p class="caption">${comment.Points}pts by ${comment.User.DisplayName} (${comment.User.Points}) - <a href="${Url.Action("Index", "Post", new { id = comment.TopMostId })}">View Post</a></p> 
+			</div>
+		</for>
+	</div>
+	<div style="float: left; width: 48%; margin-left: 25px;">
+		<h2>Latest Submissions</h2>
+		<for each="var post in Model.LatestSubmissions">
+			<p style="margin-top: 5px;"><a href="${Url.Action("Index", "Post", new { id = post.PostId, slug = post.Slug })}">${post.Title} (${post.Points})</a></p>
+			<p class="caption" style="border-bottom: 1px solid #ccc; margin-bottom: 5px;">Submitted by ${post.User.DisplayName} (${post.User.Points})</p> 
+		</for>
+	
+		<h2>Latest Users</h2>	
+		<for each="var user in Model.LatestUsers">
+			<p>${user.UserId} - <a href="${Url.Action("Profile", "User", new { id = user.UserId })}">${user.DisplayName}</a></p>
+		</for>
+		
+		<h2>Leaderboard</h2>	
+		<for each="var user in Model.TopUsers">
+			<p>${user.Points} - <a href="${Url.Action("Profile", "User", new { id = user.UserId })}">${user.DisplayName}</a></p>
+		</for>
+	</div>		
+</div>

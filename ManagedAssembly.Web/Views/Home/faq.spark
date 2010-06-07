@@ -1,0 +1,45 @@
+﻿
+<content:title>
+	Managed Assembly : FAQ
+</content:title>
+
+
+<div style="width: 60%; margin: 0 auto;">
+	<h1>FAQ</h1>
+	<h2>What is Managed Assembly?</h2>
+	<p>This site is a social news and discussion site for intermediate to advanced .NET developers, or those that want to be one.</p>
+	<h2>Aren't you ripping off Hacker News/Stack Overflow/DotNetSomethingOrOtherLinkSite.com?</h2>
+	<p>Yep! <a href="http://john-sheehan.com/blog/introducing-managedassemblycom/">Read this</a>.</p>
+	
+	<h2>I use Google OpenID and my account information is gone!</h2>
+	<p>We recently changed to use RPX Now and since Google's OpenID implemenation is non-standard you're not seeing the account you
+		previously created. Please <a href="mailto:john@managedassembly.com">email me</a> and I'll merge your accounts.
+	</p>
+	
+	<h2>Why can't I post a link with a description?</h2>
+	<p>This would give you an unfair advantage to comment on a link submission in a prominent spot. 
+		Submit the link, then add a comment instead so the link and your comment can be each be voted on their own merits.</p>
+	<h2>Why aren't my URLs becoming links in my discussion submissions?</h2>
+	<p>See previous question.</p>
+	<h2>Where are the downvotes?</h2>
+	<p>Hi, Jeff! We have downvotes, but you have to have a little rep first and there are some other restrictions.</p>
+	<h2>What kind of markup can I use in my posts?</h2>
+	<p>*bold*, _italics_, lines that start with 4 spaces become code/pre and URLs become links in comments. Deliberately simple.</p>
+	<h2>How do I get rep?</h2>
+	<p>You get +1 for every comment or submission of yours that gets an upvote. You get -1 for every downvote on your comments. 
+	You get -1,000,000 for being a slimy spammer.</p>
+	<h2>What can I submit?</h2>
+	<p>Anything interesting to an experienced .NET developer. If a mod deems it off-topic or too basic, it will be killed.</p>
+	<h2>I found a bug!</h2>
+	<p><a href="mailto:bugs@managedassembly.com">Send 'er in.</a></p>
+	<h2>I need a feature.</h2>
+	<p>Head over to <a href="http://managedassembly.uservoice.com" target="_blank">our UserVoice site</a> where it will be summarily dismissed (kidding! maybe)</p>
+	<h2>How much rep do I need to do XYZ?</h2>
+	<p>Probably not very much. Hang around a little bit.</p>
+	<h2>Can I be a mod?</h2>
+	<p>Probably, establish yourself first though, then get in touch.</p>
+	<h2>Who made this site and with what?</h2>
+	<p><a href="http://managedassembly.com/user/1">John Sheehan</a> with ASP.NET MVC, SubSonic, SQL Server, jQuery and magic butterflies.</p>
+	<h2>Is this FAQ intentionally vague?</h2>
+	<p>Yes. It's a fluent situation around here for the time being.</p>
+</div>

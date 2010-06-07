@@ -1,0 +1,94 @@
+<content:title>
+	Managed Assembly : .NET Twitter Stream
+</content:title>
+<content:head>
+	<link rel="stylesheet" type="text/css" href="/Media/Styles/twitterstream.css" />
+	<script type="text/javascript" src="${Url.Action("Tweet")}"></script>
+	<script type="text/javascript" src="${Url.Action("User")}"></script>
+	<script type="text/javascript" src="/Media/Scripts/jquery.scrollTo.min.js"></script>
+	<script type="text/javascript" src="/Media/Scripts/prettyDate.js"></script>
+	<script type="text/javascript">
+		var autoScroll = true;
+
+		$(function() {
+			getUpdates();
+			getUsers();
+
+			$("#statusContainer").scroll(function() {
+				autoScroll = this.scrollTop + this.clientHeight == this.scrollHeight;
+				if (autoScroll) {
+					$("#autoScrollOn").show();
+					$("#autoScrollOff").hide();
+				}
+				else {
+					$("#autoScrollOff").show();
+					$("#autoScrollOn").hide();
+				}
+			});
+		});
+
+		function getUpdates() {
+			$.getJSON('${Url.Action("Refresh")}', { lid: $("#lid").val() }, refreshList);
+			window.setTimeout(getUpdates, 15000);
+		}
+
+		function getUsers() {
+			$.getJSON('${Url.Action("Following")}', { }, refreshUsers);
+		}
+
+		function refreshList(json) {
+			if (json.max_id > 0)
+				$("#lid").val(json.max_id);
+
+			var html = '';
+			$.each(json.results.reverse(), function(i, result) {
+				html += Spark.Twitter._Tweet.RenderView({ tweet: result });
+			}); 
+			$("#statuses").append(html);
+
+			if (autoScroll) $("#statusContainer").scrollTo(99999);
+			$(".relativeTime").prettyDate();
+		}
+
+		function refreshUsers(json) {
+			var html = "";
+			$.each(json.users, function(i, user) {
+				html += Spark.Twitter._User.RenderView({ user: user });
+			});
+			$("#users").append(html);
+		}
+	</script>
+</content:head>
+    <div style="overflow: hidden;">
+		<div id="twitter">
+			<h2>.NET Twitter Stream</h2>
+			<div id="statusContainer">
+				<table id="statuses" style="table-layout: fixed; overflow: hidden;">
+				</table>
+			</div>
+			<p>Updates automatically every 15 seconds. Auto scroll is <span id="autoScrollOn">ON</span> <span id="autoScrollOff" style="display: none;">OFF</span> </p>
+			
+		</div>
+	    
+		<div id="utilities">
+			<h2>Twitter Utilities</h2>
+			<p><a href="${Url.Action("Check", "Twitter")}">Friend Checker</a> (Is @X following @Y?)</p>
+			
+			<h2>Find a bug?</h2>
+			<p><a href="mailto:bugs@managedassembly.com">Report it</a> and follow <a href="http://twitter.com/managedassembly">@managedassembly</a> for updates.</p>
+
+			<h2>Not seeing anything?</h2>
+			<p>Twitter's API can be flaky at times. Check back later.</p>
+			
+			<h2>Nominate Someone</h2>
+			<p>Know someone who should be on this list? <a href="mailto:twitter@managedassembly.com">Nominate them!</a></p>
+		</div>
+    </div>
+    <div id="following">
+
+		<h2>Currently Following</h2>
+		<div id="users"></div>
+    </div>
+    
+    <div style="clear: both;"></div>
+    ${Html.Hidden("lid", "")}

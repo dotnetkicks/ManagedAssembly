@@ -1,0 +1,8 @@
+﻿<viewdata model="CommentEditViewModel" />
+# using (Html.BeginForm("CommentEdit", "Post", FormMethod.Post, new { @class=Model.CssClass ?? "editForm", id="editform_"+Model.Post.PostId.ToString() })) {
+	<p>
+		${Html.Hidden("PostId", Model.Post.PostId)}
+		${Html.TextArea("Contents", Model.Post.ContentsRaw, new { rows = 5, cols = 60 })}<br />
+		${Html.SubmitButton("submit", "Save Changes")}
+	</p>
+# }

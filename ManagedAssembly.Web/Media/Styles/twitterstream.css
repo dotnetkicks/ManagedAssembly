@@ -1,0 +1,97 @@
+﻿#twitter
+{
+	float: left;
+	width: 60%;
+}
+#following
+{
+	clear: both;
+	margin-top: 25px;
+}
+#utilities 
+{
+	width: 35%;
+	float: left;
+	padding-left: 25px;
+}
+#users 
+{
+	overflow: auto;
+}
+#autoScrollOff
+{
+	color: #f00;
+}
+#autoScrollOn
+{
+	color: #0f0;
+}
+#statusContainer
+{
+	height: 525px;
+	overflow: auto;
+	border: 1px solid #ccc;
+	margin: 5px 0;
+}
+#statuses
+{
+	width: 100%;
+	border: none;
+	border-collapse: collapse;
+}
+.status
+{
+	background-image: url(/Media/Images/twittergradient.jpg);
+	background-position: top left;
+	background-repeat: repeat-x;
+}
+.status td
+{
+	text-align: left;
+	vertical-align: top;
+	overflow: hidden;
+	padding: 5px;
+}
+.status td.avatar
+{
+	width: 48px;
+}
+.status td p
+{
+	font-size: .8em;
+	margin: 0;
+	padding: 0;
+}
+.status td p.meta
+{
+	color: #888;
+	text-align: right;
+	font-style: italic;
+	font-family: Georgia, Serif;
+	font-size: .7em;
+}
+.status td p.meta a
+{
+	color: #888;
+	text-decoration: none;
+}
+.user a
+{
+	color: #888;
+	font-weight: bold;
+	text-decoration: none;
+}
+.alt
+{
+	background-color: #ccc;
+}
+.userInfo
+{
+	float: left;
+	width: 250px;
+	margin: 5px;
+}
+.userInfo img
+{
+	padding-right: 5px;
+}

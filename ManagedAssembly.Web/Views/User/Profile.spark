@@ -1,0 +1,137 @@
+﻿<viewdata model="ManagedAssembly.Data.User" />
+<content:title>
+	Managed Assembly : ${Model.DisplayName}
+</content:title>
+
+<content:head if="Model.StackOverflowID.HasValue">
+	<script type="text/javascript">
+		$(function() {
+			$.getJSON("http://stackoverflow.com/users/flair/${Model.StackOverflowID.Value}.json?callback=?", showStackOverflow)
+		});
+		
+		function showStackOverflow(data) {
+			$("#so_rep").html(data.reputation);
+			$("#so_badges").append(data.badgeHtml);
+			$("#so_profile_url").attr("href", data.profileUrl).html(data.displayName);
+        };
+	</script>
+	<style type="text/css">
+        .badge1 { color: #FFCC00; }
+        .badge2 { color: #C0C0C0; }
+        .badge3 { color: #CC9966; }
+        .badgecount { padding-right: 5px; }
+	</style>
+</content:head>
+
+	<if condition="UserService.IsAuthenticated && UserService.Current.UserId == Model.UserId">
+		<h1>Your Profile</h1>
+		<div style="border: 1px solid #f00; padding: 0 15px 15px;">
+			<h2 style="font-weight: bold;">Have you previously signed in with Google?</h2>
+			<p>We recently changed to use RPX Now and since Google's OpenID implemenation is non-standard you're not seeing the account you
+				previously created. Please <a href="mailto:john@managedassembly.com">email me</a> and I'll merge your accounts. Thanks!
+			</p>
+		</div>
+		
+		# using (Html.BeginForm("Profile", "User", FormMethod.Post)) {
+			<table id="profile">
+				<tr>
+					<th>OpenID</th>
+					<td>${Model.ExternalKey}</td>
+				</tr>
+				<tr>
+					<th>RSS Feeds</th>
+					<td><a href="${Url.Action("user", "feed", new { id=Model.UserId })}">Submissions</a> </td>
+				</tr>
+				<tr>
+					<th>Nickname</th>
+					<td>${Html.TextBox("DisplayName", Html.Decode(Model.DisplayName), new { size = 30 })}</td>
+				</tr>
+				<tr>
+					<th>Email</th>
+					<td>
+						${Html.TextBox("Email", Html.Decode(Model.Email), new { size = 50, maxlength = 50 })}<br />
+						<span class="caption">Never displayed or shared. Only needed if you need to switch your OpenID later.</span>
+					</td>
+				</tr>
+				<tr>
+					<th>Web Site</th>
+					<td>
+						${Html.TextBox("Url", Html.Decode(Model.Url), new { size = 50 })}<br />
+						<span class="caption">Will be displayed as plain text until you reach ${Settings.Thresholds.MinimumProfileLinkRep} rep.</span>
+					</td>
+				</tr>
+				<tr>
+					<th>Twitter</th>
+					<td>
+						${Html.TextBox("Twitter", Html.Decode(Model.Twitter), new { size = 30 })}<br />
+						<span class="caption">Enter just your username.</span>
+					</td>
+				</tr>
+				<tr>
+					<th>Stack Overflow<br />User ID</th>
+					<td>
+						${Html.TextBox("StackOverflowID", Model.StackOverflowID, new { size = 6 })}<br />
+						<span class="caption">Don't know it? Check the URL of your user profile.</span>
+					</td>
+				</tr>
+				<tr>
+					<th>About</th>
+					<td>
+						${Html.TextArea("Bio", Model.BioRaw, new { rows = 5, cols = 60 })}
+					</td>
+				</tr>
+				<tr>
+					<td>&nbsp;</td>
+					<td>
+						${Html.SubmitButton("submit", "Save")}
+					</td>
+				</tr>
+			</table>
+		# }
+	</if>
+	<else>
+		<h1>${Model.DisplayName}</h1>
+		<p>
+			<a href="${Url.Action("threads", "user", new { id = Model.UserId })}">Comment Threads</a> 
+			| <a href="${Url.Action("user", "feed", new { id=Model.UserId })}">Submissions RSS Feed</a> 
+		</p>
+		<table id="profile">
+			<tr>
+				<th>Points</th>
+				<td>
+					${Model.Points}
+				</td>
+			</tr>
+			<tr if="!string.IsNullOrEmpty(Model.Url)">
+				<th>Web Site</th>
+				<td>
+					<if condition="Model.Points >= Settings.Thresholds.MinimumProfileLinkRep">
+						<a href="${Model.Url}" target="_blank">${Model.Url}</a>
+					</if>
+					<else>
+						${Model.Url}
+					</else>
+				</td>
+			</tr>
+			<tr if="!string.IsNullOrEmpty(Model.Twitter)">
+				<th>Twitter</th>
+				<td>
+					<a href="http://twitter.com/${Model.Twitter}">${Model.Twitter}</a>
+				</td>
+			</tr>
+			<tr if="Model.StackOverflowID.HasValue">
+				<th>StackOverflow</th>
+				<td>
+					<a id="so_profile_url" target="_blank" href="">View Profile</a><br />
+					<strong><span id="so_rep"></span></strong>
+					<div id="so_badges"></div>
+				</td>
+			</tr>
+			<tr if="!string.IsNullOrEmpty(Model.Bio)">
+				<th>About</th>
+				<td>
+					${Model.Bio}
+				</td>
+			</tr>
+		</table>
+	</else>

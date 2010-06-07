@@ -1,0 +1,12 @@
+<viewdata model="CommentsIndexViewModel" />
+
+<content:title>
+	Managed Assembly : Latest Comments
+</content:title>
+
+<h1>Latest Comments</h1>
+<div id="discussion">
+	<for each="var comment in Model.Comments">
+		# Html.RenderPartial("Comment", new CommentViewModel { Comment = comment, UpVoteIds = Model.UpVoteIds, DownVoteIds = Model.DownVoteIds });
+	</for>
+</div>

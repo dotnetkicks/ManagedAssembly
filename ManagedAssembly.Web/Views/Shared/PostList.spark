@@ -1,0 +1,22 @@
+﻿<viewdata model="PostListViewModel" />
+<for each="var post in Model.Posts">
+	<div class="post">
+		<div class="vote" id="vote_${post.PostId}">
+			${Html.PostVoteControls(post, Model.UpVoteIds)}
+		</div>
+
+		<div class="score">
+			<span id="count_${post.PostId}">${post.UpVotes}</span>
+		</div>
+
+		<div class="link">
+			${Html.PostLink(post)}
+			<span class="caption" if="post.IsLink && !post.IsDeleted"> ${post.DomainName}</span>
+		</div>
+		<div class="meta">
+			${post.CreateDate.ReadableDiff(DateTime.Now)} 
+			by <a href="${Url.Action("Profile", "User", new { id = post.UserId })}">${post.User.DisplayName}</a> -
+			<a href="${Url.Action("Index", "Post", new { id = post.PostId, slug = post.Slug })}">${Html.NumberWithLabel(post.CommentCount, "Comment", "Comments")}</a>
+		</div>
+	</div>	
+</for>

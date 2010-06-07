@@ -1,0 +1,19 @@
+﻿<viewdata tweet="object" />
+
+<tr class="status new">
+	<td class="avatar">
+		<a target="_blank" href="http://twitter.com/${tweet.UserName}">
+			<img height="48" width="48" src="${tweet.ProfileImageUrl}" align="left" /></a>
+	</td>
+	<td>
+		<p>
+			<span class="user"><a target="_blank" href="http://twitter.com/${tweet.UserName}">${tweet.UserName}</a></span>
+			${tweet.Text}
+		</p>
+		<p class="meta">
+			<a target="_blank" class="relativeTime" href="${tweet.Permalink}" title="${tweet.IsoTime}"></a> 
+			from ${tweet.ClientLink}
+			<a if="tweet.IsReply" href="http://twitter.com/${tweet.InReplyToUser}/statuses/${tweet.InReplyToId}">in reply to ${tweet.InReplyToUser}</a>
+		</p>
+	</td>
+</tr>

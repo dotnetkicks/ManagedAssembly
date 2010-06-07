@@ -1,0 +1,267 @@
+﻿body {
+	font-family: "Calibri" , Verdana, Sans-Serif;
+	font-size: 100%;
+	margin: 0;
+	padding: 0;
+	background-color: #c8c8c8;
+}
+pre {
+	margin: 8px;
+	font-family: Consolas;
+}
+a:link {
+	color: #36c;
+}
+a:visited {
+	color: #369;
+}
+a img {
+	border: none;
+}
+h1 {
+	padding: 0;
+	margin: 10px 0;
+}
+h2 {
+	font-size: 1.2em;
+	font-weight: normal;
+	padding: 0;
+	margin: 15px 0 0 0;
+}
+p {
+	font-size: .9em;
+	margin: 3px 0;
+	padding: 0;
+}
+#contents li {
+	font-size: .8em;
+}
+#contents p {
+	font-size: .8em;
+	margin: 3px 0;
+}
+#header {
+	width: 880px;
+	height: 70px;
+	overflow: auto;
+	padding: 3px 10px;
+	margin: 0 auto;
+	background-color: #eaeaea;
+	border-right: 1px solid #aaa;
+}
+#header h1 {
+	font-family: Consolas, Monospace;
+	font-size: 2em;
+	color: #555;
+	margin: 0;
+	padding: 0;
+}
+#header a {
+	text-decoration: none;
+}
+#header h2 {
+	margin: 0;
+	color: #555;
+}
+#title {
+	float: left;
+	width: 375px;
+}
+#nav {
+	float: left;
+	width: 330px;
+	padding: 15px 0 0 0;
+	margin: 0;
+	list-style: none;
+}
+#nav li
+{
+	display: inline;
+	margin-right: 20px;
+}
+#nav a
+{
+	font-weight: bold;
+}
+#userInfo {
+	float: right;
+	width: 175px;
+	padding: 15px 0 0 0;
+	font-size: .9em;
+	text-align: right;
+}
+#footer {
+	width: 880px;
+	padding: 3px 10px;
+	margin: 0 auto;
+	font-size: .75em;
+	border-top: 1px solid #999;
+	color: #555;
+	overflow: hidden;
+}
+#footer p.about {
+	font-size: 1em;
+	width: 45%;
+	float: right;
+	text-align: right;
+}
+#footer p.sponsor {
+	font-size: 1em;
+	width: 45%;
+	float: left;
+}
+#content {
+	width: 880px;
+	margin: 0 auto;
+	padding: 15px 10px;
+	background-color: #fff;
+	border-right: 1px solid #aaa;
+}
+.post {
+	overflow: auto;
+	margin: 0 0 10px 0;
+}
+.post .link {
+	font-size: 1.1em;
+}
+.post .link a {
+	font-weight: bold;
+	text-decoration: none;
+}
+.post .meta {
+	float: left;
+	color: #999;
+	font-size: .9em;
+}
+.post .meta a {
+	color: #999;
+}
+.post .vote {
+	float: left;
+	width: 40px;
+	margin: 5px 5px 0 0;
+	text-align: center;
+	line-height: 40px;
+}
+.post .score {
+	float: left;
+	width: 40px;
+	margin: 0 5px 0 0;
+	background-color: #999;
+	color: #fff;
+	font-family: "Consolas" , Monospace;
+	font-size: 2em;
+	text-align: center;
+	line-height: 40px;
+}
+.vote img.upvote, .vote img.downvote {
+	cursor: pointer;
+}
+.vote img.downvote {
+	margin-top: 3px;
+}
+.tag {
+	color: #fff;
+	background-color: #666;
+	padding: 3px 5px;
+	margin: 1px;
+	border: 1px solid #ccc;
+}
+.comment {
+	margin: 0;
+	padding: 5px 0 0;
+}
+.comment td.meta, #details tr.meta td {
+	color: #999;
+}
+#details .vote {
+	width: 40px;
+}
+#details .title {
+	font-size: 1.1em;
+}
+#details .title a {
+	text-decoration: none;
+}
+.comment .vote {
+	padding: 6px 1px 0;
+	width: 10px;
+}
+.comment td.meta a, #details tr.meta td a {
+	color: #999;
+}
+.comment td {
+	font-size: .9em;
+}
+.kids {
+	margin-left: 20px;
+}
+#profile {
+	border-top: 1px solid #fff;
+	border-collapse: collapse;
+}
+#profile th {
+	width: 100px;
+	font-weight: bold;
+	text-align: right;
+	vertical-align: top;
+	border-bottom: 1px solid #fff;
+	padding: 5px;
+}
+#profile td {
+	text-align: left;
+	vertical-align: top;
+	border-bottom: 1px solid #fff;
+	padding: 5px;
+}
+.caption {
+	font-size: smaller;
+	color: #999;
+}
+.caption a {
+	color: #999;
+}
+.respond {
+	margin: 0 0 0 47px;
+	padding-bottom: 5px;
+}
+.respond a {
+	color: #666;
+}
+.replyArea {
+	padding-left: 17px;
+}
+.replyArea p {
+	font-size: 1em;
+	margin: 0;
+}
+#contents {
+	margin: 10px 17px;
+	font-size: .8em;
+}
+#discussion {
+	margin: 10px 0 0 0;
+	padding: 10px 0 0 0;
+	border-top: 1px solid #ccc;
+}
+#notifier {
+	margin: 0;
+	padding: 10px;
+	text-align: center;
+	border: 1px solid #555;
+	color: #fff;
+	font-weight: bold;
+	background-color: #000;
+}
+#feeds
+{
+	position: absolute;
+	display: none;
+	padding: 0 10px 10px;
+	background-color: #fff;
+	border: 1px solid #555;
+}
+.hidden
+{
+	display: none;
+}

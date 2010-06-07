@@ -1,0 +1,4 @@
+﻿<viewdata user="object" />
+<p class="userInfo"><img src="${user.ProfileImageUrl}" align="left" width="48" height="48" />${user.Name}<br />
+<a href="http://twitter.com/${user.ScreenName}" target="_blank">@${user.ScreenName}</a><br />
+<span class="caption">${user.FollowerCount} followers</span></p>

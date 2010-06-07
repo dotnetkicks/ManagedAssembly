@@ -1,0 +1,8 @@
+﻿<viewdata model="NewViewModel" />
+
+<content:title>
+	Managed Assembly : New
+</content:title>
+
+#Html.RenderPartial("PostList", Model.PostListViewModel);
+<p>${Html.SimplePager(Model.PageNumber)}</p>

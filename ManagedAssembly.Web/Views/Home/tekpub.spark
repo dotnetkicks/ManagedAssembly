@@ -1,0 +1,45 @@
+﻿<content:title>
+	Managed Assembly TekPub Giveaway
+</content:title>
+
+<h1>Managed Assembly/TekPub Giveaway</h1>
+<h2>
+	We've teamed up with TekPub to give away TWO 1-year subscriptions, a $200 value!
+</h2>
+<p>
+	<a href="http://www.tekpub.com/" title="TekPub - Top-quality screencasts and tutorials for web developers and geeks in general." target="_blank">Learn more about TekPub</a>
+	- <a href="http://twitter.com/tekpub" target="_blank">Follow @TekPub</a>
+	- <a href="http://twitter.com/ManagedAssembly" target="_blank">Follow @ManagedAssembly</a>
+</p>
+
+<h3>Drawing #1 - <strong>Winner: @amreldib</strong></h3>
+<p>Enter Drawing #1 by tweeting the following between January 26, 2010 and January 31, 2010:</p>
+<p style="font-style: italic;">Win a 1-year subscription to @TekPub from @ManagedAssembly http://bit.ly/tekpubgiveaway RT to enter</p>
+<h3><a href="http://twitter.com/home?status=${System.Web.HttpUtility.UrlEncode("Win a 1-year subscription to @TekPub from @ManagedAssembly http://bit.ly/tekpubgiveaway RT to enter")}">Tweet now</a></h3>
+<p>Terms and conditions for Drawing #1:</p>
+<ul>
+	<li>Each Twitter username can only enter once</li>
+	<li>Winner will be notified via Twitter and have 48 hours to respond to claim prize. If unclaimed another name will be drawn.</li>
+	<li>Winner will be posted here and on @ManagedAssembly on February 1, 2010</li>
+	<li>Dates and times are based on Central Standard Time. </li>
+	<li>Terms and conditions are subject to change at any time.</li>
+</ul>
+
+<h3>Drawing #2 - <strong>Winner: <a href="/user/136">matmaw</a></strong></h3>
+<p>You can enter Drawing #2 by doing any of the following between January 26, 2010 and February 5, 2010:</p>
+<ul>
+	<li>Create an account on ManagedAssembly.com using your OpenID and a valid email address (emails are kept private)</li>
+	<li>Submit a link</li>
+	<li>Comment on a submission</h1>
+	<li>Upvote a submission or comment</h1>
+</ul>
+
+<p>Terms and conditions for Drawing #2:</p>
+<ul>
+	<li><strong>Any submissions/comments that violate the site guidelines will disqualify that entry.</strong></li>
+	<li>You can enter once per day during the contest period by performing any of the eligible actions. </li>
+	<li>Winner will be emailed and have 48 hours to respond to claim prize. If unclaimed another name will be drawn.</li>
+	<li>Winner will be posted here and on @ManagedAssembly on February 8, 2010</li>
+	<li>Dates and times are based on Central Standard Time. </li>
+	<li>Terms and conditions are subject to change at any time.</li>
+</ul>

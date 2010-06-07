@@ -1,0 +1,19 @@
+<viewdata model="PostEditViewModel" />
+
+# using (Html.BeginForm("PostEdit", "Post", FormMethod.Post, new { @class="editPostForm", id="editform_"+Model.Post.PostId.ToString() })) {
+	<if condition="UserService.IsAuthenticated && (UserService.Current.IsModerator || UserService.Current.IsAdmin)">
+		<h2>Title</h2>
+		<p>${Html.TextBox("Title", Model.Post.Title, new { size = 80, maxlength = 255 })}</p>
+		
+		<h2>URL</h2>
+		<p>${Html.TextBox("Url", Model.Post.Url, new { size = 80, maxlength = 500 })}</p>
+	</if>
+	
+	<if condition="Model.Post.IsDiscussion">
+		<h2>Contents</h2>
+		<p>${Html.TextArea("Contents", Model.Post.ContentsRaw, 5, 80, null)}</p>
+	</if>
+		
+	<h2>${Html.SubmitButton("Submit", "Save Changes")}</h2>
+	${Html.Hidden("PostId", Model.Post.PostId)}
+# }

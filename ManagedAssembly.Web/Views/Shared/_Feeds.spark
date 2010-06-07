@@ -1,0 +1,7 @@
+﻿	<h2>Popular (Front Page)</h2>
+	<p><a href="${Url.Action("popular", "feed")}">RSS</a> | <a href="http://twitter.com/MA_Popular" target="_blank">Twitter</a></p>
+	<h2>Newest (may contain spam)</h2>
+	<p><a href="${Url.Action("new", "feed")}">RSS</a> | <a href="http://twitter.com/MA_New" target="_blank">Twitter</a></p>
+
+	<h2>Site Updates</h2>
+	<p><a href="http://twitter.com/ManagedAssembly" target="_blank">Twitter</a></p>

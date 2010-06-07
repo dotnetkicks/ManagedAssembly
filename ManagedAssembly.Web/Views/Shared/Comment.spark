@@ -1,0 +1,48 @@
+﻿<viewdata model="CommentViewModel" />
+
+<var isOwn="UserService.IsAuthenticated && Model.Comment.UserId == UserService.Current.UserId" />
+<var canDelete="UserService.IsAuthenticated && (UserService.Current.IsAdmin || UserService.Current.IsModerator)" />
+
+<div class="comment" id="c${Model.Comment.PostId}">
+	<table>
+		<tr class="link">
+			<td class="vote" id="vote_${Model.Comment.PostId}" valign="top" rowspan="2">
+				${Html.CommentVoteControls(Model.Comment, Model.UpVoteIds, Model.DownVoteIds)}
+			</td>
+			<td class="meta">
+				<span id="count_${Model.Comment.PostId}">${Model.Comment.Points}</span> points
+				by <a href="${Url.Action("Profile", "User", new { id = Model.Comment.UserId })}">${Model.Comment.User.DisplayName}</a>
+				${Model.Comment.CreateDate.ReadableDiff(DateTime.Now)}
+			</td>
+		</tr>
+		<tr>
+			<td id="contents_${Model.Comment.PostId}">
+				<if condition="Model.Comment.IsDeleted">
+					[deleted]
+				</if>
+				<else>
+					${Model.Comment.Contents}
+				</else>
+			</td>
+		</tr>
+	</table>
+	
+	<div class="replyArea" id="tools_${Model.Comment.PostId}" if="UserService.IsAuthenticated">
+		<p>
+			<if condition="!Model.Comment.IsDeleted">
+				<a if="Model.AllowReplies" class="caption commentReply" href="#" id="reply_${Model.Comment.PostId}">Reply</a>
+				<a class="caption" href="${Url.Action("Index", "Post", new { id = Model.Comment.TopMostId })}#c${Model.Comment.PostId}">Link</a>
+				<if condition="(isOwn && Model.Comment.CreateDate > DateTime.Now.AddMinutes(-Settings.Thresholds.CommentEditMinutes)) || canDelete">
+					<a class="caption commentEdit" href="#" id="edit_${Model.Comment.PostId}">Edit</a>
+					<a href="#" class="caption deletePost" id="delete_${Model.Comment.PostId}">Delete</a>
+				</if>
+			</if>
+		</p>
+	</div>
+
+	<div class="kids">
+		<for each="var comment in Model.Children">
+			#Html.RenderPartial("Comment", new CommentViewModel { AllowReplies = true, Comment = comment, Children = comment.Children, UpVoteIds = Model.UpVoteIds, DownVoteIds = Model.DownVoteIds });
+		</for>
+	</div>
+</div>

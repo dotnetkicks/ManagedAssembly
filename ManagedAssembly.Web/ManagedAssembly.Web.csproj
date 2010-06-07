@@ -1,0 +1,352 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{3F5B40D1-2BF7-4D28-8520-3DF50A7E15DA}</ProjectGuid>
+    <ProjectTypeGuids>{F85E285D-A4E0-4152-9332-AB1D724D3325};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ManagedAssembly.Web</RootNamespace>
+    <AssemblyName>ManagedAssembly.Web</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Argotic.Common, Version=2008.0.1.0, Culture=neutral, PublicKeyToken=84b2ce808fb02469, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\References\Argotic.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Argotic.Core, Version=2008.0.1.0, Culture=neutral, PublicKeyToken=84b2ce808fb02469, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\References\Argotic.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Argotic.Extensions, Version=2008.0.1.0, Culture=neutral, PublicKeyToken=84b2ce808fb02469, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\References\Argotic.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Argotic.Web, Version=2008.0.1.0, Culture=neutral, PublicKeyToken=84b2ce808fb02469, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\References\Argotic.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="BitlyApi, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\References\BitlyApi.dll</HintPath>
+    </Reference>
+    <Reference Include="Dimebrain.TweetSharp, Version=1.0.16.0, Culture=neutral, PublicKeyToken=c148cfba29ed1a4d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\References\Dimebrain.TweetSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenId, Version=2.5.1.8313, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\References\DotNetOpenId.dll</HintPath>
+    </Reference>
+    <Reference Include="Elmah, Version=1.0.11211.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\References\Elmah.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Mvc">
+      <HintPath>..\References\Microsoft.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=3.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\References\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="RestSharp, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\References\RestSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="RouteDebug, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\References\RouteDebug.dll</HintPath>
+    </Reference>
+    <Reference Include="Spark, Version=1.0.0.0, Culture=neutral, PublicKeyToken=7f8549eed921a12c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\References\Spark.dll</HintPath>
+    </Reference>
+    <Reference Include="Spark.Web.Mvc, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\References\Spark.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="SubSonic.Core, Version=3.0.0.3, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\References\SubSonic.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.Abstractions, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Program Files\Microsoft ASP.NET\ASP.NET MVC Beta\Assemblies\System.Web.Abstractions.dll</HintPath>
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.Routing, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Program Files\Microsoft ASP.NET\ASP.NET MVC Beta\Assemblies\System.Web.Routing.dll</HintPath>
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.XML" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Configuration" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Application\Application.cs" />
+    <Compile Include="Application\Controls\VoteControls.cs" />
+    <Compile Include="Application\Results\PermanentRedirectResult.cs" />
+    <Compile Include="Application\RPXNow\AuthInfo.cs" />
+    <Compile Include="Controllers\ShareController.cs" />
+    <Compile Include="Model\Generated\Classes.cs">
+      <DependentUpon>Classes.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Model\Generated\Context.cs">
+      <DependentUpon>Context.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Model\Generated\StoredProcedures.cs">
+      <DependentUpon>StoredProcedures.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Model\Generated\Structs.cs">
+      <DependentUpon>Structs.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Model\Repositories\VoteDirectionRepository.cs" />
+    <Compile Include="Model\Vote.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\CommentsController.cs" />
+    <Compile Include="Controllers\ControllerBase.cs" />
+    <Compile Include="Controllers\DashboardController.cs" />
+    <Compile Include="Controllers\FeedController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\TwitterController.cs" />
+    <Compile Include="Controllers\PostController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Controllers\VoteController.cs" />
+    <Compile Include="Model\IDs.cs" />
+    <Compile Include="Model\Post.cs" />
+    <Compile Include="Model\Repositories\PostStatsViewRepository.cs" />
+    <Compile Include="Model\Repositories\UserStatsViewRepository.cs" />
+    <Compile Include="Model\Repositories\VoteRepository.cs" />
+    <Compile Include="Application\EncryptionHelper.cs" />
+    <Compile Include="Application\Attributes\HandleErrorsAttribute.cs" />
+    <Compile Include="Application\Results\RssResult.cs" />
+    <Compile Include="Application\Settings.cs" />
+    <Compile Include="ViewModels\CommentsIndexViewModel.cs" />
+    <Compile Include="ViewModels\CommentViewModel.cs" />
+    <Compile Include="ViewModels\CommentEditViewModel.cs" />
+    <Compile Include="ViewModels\ShareViewModel.cs" />
+    <Compile Include="ViewModels\DashboardViewModel.cs" />
+    <Compile Include="ViewModels\PostEditViewModel.cs" />
+    <Compile Include="ViewModels\PostDetailViewModel.cs" />
+    <Compile Include="ViewModels\PostListViewModel.cs" />
+    <Compile Include="Model\Repositories\PostRepository.cs" />
+    <Compile Include="Model\Repositories\PostTagRepository.cs" />
+    <Compile Include="Model\Repositories\RepositoryBase.cs" />
+    <Compile Include="Model\Repositories\TagRepository.cs" />
+    <Compile Include="Model\Repositories\UserRepository.cs" />
+    <Compile Include="Model\User.cs" />
+    <Compile Include="ViewModels\NewViewModel.cs" />
+    <Compile Include="ViewModels\IndexViewModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\PostService.cs" />
+    <Compile Include="Services\TagService.cs" />
+    <Compile Include="Services\TestDataService.cs" />
+    <Compile Include="Services\UserService.cs" />
+    <Compile Include="Services\VoteService.cs" />
+    <Compile Include="Application\Attributes\AuthenticateAttribute.cs" />
+    <Compile Include="Application\CacheManager.cs" />
+    <Compile Include="Application\Extensions\HtmlExtensions.cs" />
+    <Compile Include="Application\Extensions\TextExtensions.cs" />
+    <Compile Include="ViewModels\ReplyViewModel.cs" />
+    <Compile Include="ViewModels\SubmitViewModel.cs" />
+    <Compile Include="ViewModels\UserThreadsViewModel.cs" />
+    <Compile Include="ViewModels\ViewModelBase.cs" />
+    <Compile Include="ViewModels\VotesLatestViewModel.cs" />
+    <Content Include="Scripts\jquery-1.4.1-vsdoc.js" />
+    <Content Include="Scripts\jquery-1.4.1.js" />
+    <Content Include="Scripts\jquery-1.4.1.min.js" />
+    <Content Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\MicrosoftAjax.debug.js" />
+    <Content Include="Scripts\MicrosoftAjax.js" />
+    <Content Include="Scripts\MicrosoftMvcAjax.debug.js" />
+    <Content Include="Scripts\MicrosoftMvcAjax.js" />
+    <Content Include="Scripts\MicrosoftMvcValidation.debug.js" />
+    <Content Include="Scripts\MicrosoftMvcValidation.js" />
+    <Content Include="Views\Twitter\_Tweet.spark" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Global.asax" />
+    <Content Include="web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Views\Shared\Error.spark" />
+    <Content Include="Views\Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Media\Images\bullet_arrow_down.png" />
+    <Content Include="Media\Images\bullet_arrow_up.png" />
+    <Content Include="Media\Images\bullet_star.png" />
+    <Content Include="Media\Scripts\jquery.scrollTo.min.js" />
+    <Content Include="Media\Scripts\common.js" />
+    <Content Include="Media\Scripts\css\openid.css" />
+    <Content Include="Media\Scripts\images\aol.gif" />
+    <Content Include="Media\Scripts\images\blogger.ico" />
+    <Content Include="Media\Scripts\images\claimid.ico" />
+    <Content Include="Media\Scripts\images\facebook.gif" />
+    <Content Include="Media\Scripts\images\flickr.ico" />
+    <Content Include="Media\Scripts\images\google.gif" />
+    <Content Include="Media\Scripts\images\livejournal.ico" />
+    <Content Include="Media\Scripts\images\myopenid.ico" />
+    <Content Include="Media\Scripts\images\openid-inputicon.gif" />
+    <Content Include="Media\Scripts\images\openid.gif" />
+    <Content Include="Media\Scripts\images\technorati.ico" />
+    <Content Include="Media\Scripts\images\verisign.ico" />
+    <Content Include="Media\Scripts\images\vidoop.ico" />
+    <Content Include="Media\Scripts\images\wordpress.ico" />
+    <Content Include="Media\Scripts\images\yahoo.gif" />
+    <Content Include="Media\Scripts\openid-jquery.js" />
+    <Content Include="Media\Styles\styles.css" />
+    <Content Include="Views\Home\faq.spark" />
+    <Content Include="Views\Home\Submit.spark" />
+    <Content Include="Views\Twitter\Index.spark" />
+    <Content Include="Views\Shared\Comment.spark">
+    </Content>
+    <Content Include="Views\Shared\CommentEdit.spark" />
+    <Content Include="Views\Shared\PostEdit.spark" />
+    <Content Include="Views\User\Index.spark" />
+    <Content Include="Views\User\Profile.spark" />
+    <Content Include="Views\User\Threads.spark" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="favicon.ico" />
+    <Content Include="googlehostedservice.html" />
+    <Content Include="Media\Images\twittergradient.jpg" />
+    <Content Include="Views\Comments\Index.spark" />
+    <Content Include="Views\Dashboard\Index.spark" />
+    <Content Include="Views\Shared\PostList.spark">
+    </Content>
+    <Content Include="Views\Shared\Reply.spark">
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Media\Images\SponsoredByTekPub.png" />
+    <None Include="Model\Generated\Classes.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Classes.cs</LastGenOutput>
+    </None>
+    <None Include="Model\Generated\Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Context.cs</LastGenOutput>
+    </None>
+    <None Include="Model\Generated\Settings.ttinclude" />
+    <None Include="Model\Generated\SQLServer.ttinclude" />
+    <None Include="Model\Generated\StoredProcedures.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>StoredProcedures.cs</LastGenOutput>
+    </None>
+    <None Include="Model\Generated\Structs.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Structs.cs</LastGenOutput>
+    </None>
+    <Content Include="Views\Dashboard\Combine.spark" />
+    <Content Include="Views\Home\tekpub.spark" />
+    <Content Include="Media\Images\bullet_arrow_down_on.png" />
+    <Content Include="Media\Images\bullet_arrow_up_on.png" />
+    <Content Include="Media\Images\star.png" />
+    <Content Include="Media\Images\upon.png" />
+    <Content Include="Views\Shared\_Feeds.spark" />
+    <Content Include="Media\Images\dropdown.png" />
+    <Content Include="Media\Images\up.png" />
+    <Content Include="Views\Share\Index.spark" />
+    <Content Include="Views\Feed\List.spark" />
+    <Content Include="Views\Twitter\_User.spark">
+    </Content>
+    <Content Include="Views\Twitter\Check.spark" />
+    <Content Include="Media\Scripts\prettyDate.js" />
+    <Content Include="Media\Styles\twitterstream.css" />
+    <Content Include="Views\Home\Index.spark">
+    </Content>
+    <Content Include="Views\Post\Index.spark">
+    </Content>
+    <Content Include="Views\Post\New.spark">
+    </Content>
+    <Content Include="Views\Shared\Application.spark">
+    </Content>
+    <Content Include="Views\Shared\_global.spark">
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+    <Service Include="{B4F97281-0DBD-4835-9ED8-7DFB966E87FF}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>3181</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

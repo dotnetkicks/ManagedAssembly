@@ -1,0 +1,9 @@
+﻿<viewdata model="ReplyViewModel" />
+
+# using (Html.BeginForm("Reply", "Post", FormMethod.Post, new { @class=Model.CssClass ?? "replyForm", id="form_"+Model.Id.ToString() })) {
+	<p>
+		${Html.Hidden("ParentId", Model.Id)}
+		${Html.TextArea("Contents", "", new { rows = 5, cols = 60 })}<br />
+		${Html.SubmitButton("submit", "Add Comment")}
+	</p>
+# }

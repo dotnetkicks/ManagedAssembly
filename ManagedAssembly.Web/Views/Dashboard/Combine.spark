@@ -1,0 +1,9 @@
+﻿<h1>Combine users</h1>
+
+<h2>Enter comma-separated list of user ids to combine</h2>
+
+# using (Html.BeginForm()) {
+   ${Html.TextBox("userIds")}        
+   ${Html.SubmitButton("Submit", "Submit")}
+           
+# }

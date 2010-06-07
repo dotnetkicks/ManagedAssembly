@@ -1,0 +1,8 @@
+﻿<viewdata model="IndexViewModel" />
+
+<content:title>
+	Managed Assembly : Popular
+</content:title>
+
+#Html.RenderPartial("PostList", Model.PostListViewModel);
+<p>${Html.SimplePager(Model.PageNumber)}</p>
